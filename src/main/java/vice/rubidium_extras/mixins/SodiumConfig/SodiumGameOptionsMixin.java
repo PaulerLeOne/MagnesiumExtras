@@ -260,6 +260,22 @@ public class SodiumGameOptionsMixin
                 .add(maxTileEntityDistanceVertical)
                 .build()
         );
+
+        OptionImpl<SodiumGameOptions, Boolean> hideDebugText = OptionImpl.createBuilder(Boolean.class, sodiumOpts)
+                .setName(Component.nullToEmpty("Hide Debug Text on Alt+F3"))
+                .setTooltip(Component.nullToEmpty("Hides the debug text on the alt+f3 menu in order to avoid lag when messuring fps"))
+                .setControl(TickBoxControl::new)
+                .setBinding(
+                        (options, value) -> MagnesiumExtrasConfig.hideDebugText.set(value),
+                        (options) -> MagnesiumExtrasConfig.hideDebugText.get())
+                .setImpact(OptionImpact.LOW)
+                .build();
+
+        groups.add(OptionGroup
+                .createBuilder()
+                .add(hideDebugText)
+                .build()
+        );
     }
 
 

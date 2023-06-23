@@ -5,13 +5,14 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import vice.rubidium_extras.config.MagnesiumExtrasConfig;
 
 @Mod.EventBusSubscriber(modid = "rubidium_extras", bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class DebugOverlayImprovements
 {
     @SubscribeEvent
     public static void onRenderDebugText(RenderGuiOverlayEvent.Pre event) {
-        if (!event.getOverlay().id().getPath().equals("debug_text"))
+        if (!MagnesiumExtrasConfig.hideDebugText.get() || !event.getOverlay().id().getPath().equals("debug_text"))
             return;
 
         // cancel rendering text if chart is displaying

@@ -31,6 +31,8 @@ public class MagnesiumExtrasConfig
 
     public static ConfigValue<Boolean> hideJEI;
 
+    public static ConfigValue<Boolean> hideDebugText;
+
     // Ok Zoomer
     public static ZoomValues zoomValues = new ZoomValues();
     public static ConfigValue<Boolean> lowerZoomSensitivity;
@@ -73,6 +75,7 @@ public class MagnesiumExtrasConfig
             fadeInQuality =  b.define("Chunk Fade In Quality (OFF, FAST, FANCY)", "FANCY");
             fog = b.define("Render Fog", true);
             hideJEI = b.define("Hide JEI Until Searching", true);
+            hideDebugText = b.define("Hide Debug Text", true);
             fullScreenMode = b.defineEnum("Use Borderless Fullscreen", FullscreenMode.FULLSCREEN);
         });
 
